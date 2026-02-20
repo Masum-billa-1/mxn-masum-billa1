@@ -3,164 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MXN Modern Herbal</title>
+<title>MXN Modern Herbal Food Ltd</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{
-  margin:0;
-  font-family:'Noto Sans Bengali',sans-serif;
-  background:#f4f6f9;
+body{margin:0;font-family:'Noto Sans Bengali',sans-serif;background:#f2f5f4;}
+header{
+display:flex;justify-content:space-between;align-items:center;
+padding:15px;background:linear-gradient(135deg,#1f8a4d,#0f5c30);
+color:white;
 }
-
-/* Header */
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+.logo{font-weight:700;font-size:20px;}
+.cart{font-size:22px;cursor:pointer;}
+.search-box{padding:15px;text-align:center;}
+.search-box input{
+width:90%;padding:10px;border-radius:20px;border:1px solid #ccc;
 }
-.logo{
-  background:#1f8a4d;
-  color:white;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:700;
-}
-.cart{
-  font-size:22px;
-}
-
-/* Hero */
 .hero{
-  background:#1f8a4d;
-  color:white;
-  padding:50px 20px;
-  border-radius:20px;
-  margin:20px;
-  text-align:center;
+margin:15px;border-radius:20px;color:white;
+padding:40px 20px;text-align:center;
+background:linear-gradient(135deg,#1f8a4d,#34a853);
 }
-.hero h1{
-  font-size:26px;
-}
-.hero p{
-  margin-top:10px;
-}
-
-/* Section */
-.section{
-  padding:20px;
-}
-.section h2{
-  font-size:22px;
-  margin-bottom:10px;
-}
-.category{
-  display:flex;
-  gap:10px;
-}
+.section{padding:15px;}
 .category button{
-  padding:8px 15px;
-  border:none;
-  border-radius:20px;
-  background:#e9ecef;
+padding:8px 15px;margin:5px;border:none;border-radius:20px;
+background:#ddd;cursor:pointer;
 }
-.category button.active{
-  background:#1f8a4d;
-  color:white;
-}
-
-/* Product */
+.category button.active{background:#1f8a4d;color:white;}
 .product{
-  background:white;
-  margin-top:20px;
-  border-radius:20px;
-  padding:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+background:white;padding:15px;margin-top:15px;
+border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
-.product img{
-  width:100%;
-  border-radius:15px;
+.product img{width:100%;border-radius:15px;}
+.price{display:flex;justify-content:space-between;margin-top:10px;}
+.order-buttons a{
+display:block;margin-top:8px;padding:10px;text-align:center;
+color:white;text-decoration:none;border-radius:10px;
 }
-.price{
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
+.whatsapp{background:#25D366;}
+.messenger{background:#0084FF;}
+.call{background:#ff6f00;}
+.admin{
+background:white;padding:15px;margin:20px;
+border-radius:20px;
 }
-.price div{
-  text-align:center;
+.admin input, .admin select{
+width:100%;padding:8px;margin-top:8px;
 }
-.order-btn{
-  display:block;
-  text-align:center;
-  margin-top:15px;
-  padding:12px;
-  background:#1f8a4d;
-  color:white;
-  text-decoration:none;
-  border-radius:10px;
+.admin button{
+margin-top:10px;padding:10px;background:#1f8a4d;
+color:white;border:none;border-radius:10px;
 }
-
-/* Why Section */
 .why{
-  background:linear-gradient(135deg,#1f8a4d,#0f5c30);
-  color:white;
-  padding:40px 20px;
-  border-radius:30px;
-  margin:20px;
+background:linear-gradient(135deg,#1f8a4d,#0f5c30);
+color:white;padding:30px;margin:20px;border-radius:30px;
 }
-.why h2{
-  text-align:center;
-}
-.why ul{
-  margin-top:20px;
-}
-.why li{
-  margin-bottom:10px;
+@media(min-width:768px){
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">MXN</div>
-  <div class="cart">🛒</div>
+<header>
+<div class="logo">MXN</div>
+<div class="cart">🛒</div>
+</header>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="পণ্য সার্চ করুন..." onkeyup="searchProduct()">
 </div>
 
 <div class="hero">
-  <h1>প্রাকৃতিক সুস্থতা সবার জন্য</h1>
-  <p>আধুনিক প্রযুক্তিতে ভেষজ চিকিৎসা ও সুস্থ জীবন</p>
+<h2>প্রাকৃতিক সুস্থতা সবার জন্য</h2>
+<p>আধুনিক প্রযুক্তিতে ভেষজ চিকিৎসা</p>
 </div>
 
 <div class="section">
-  <h2>আমাদের ভেষজ পণ্যসমূহ</h2>
-  <div class="category">
-    <button class="active">সকল পণ্য</button>
-    <button>Medicine</button>
-    <button>Hair Care</button>
-  </div>
+<div class="category">
+<button onclick="filterCategory('all')" class="active">সকল পণ্য</button>
+<button onclick="filterCategory('Medicine')">Medicine</button>
+<button onclick="filterCategory('Hair Care')">Hair Care</button>
+</div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" alt="">
-    <h3>মডার্ন নিম সোপ</h3>
-    <p>ত্বকের জন্য সেরা হারবাল সাবান</p>
+<div id="products" class="product-grid"></div>
+</div>
 
-    <div class="price">
-      <div>
-        <small>MRP</small><br>৳150
-      </div>
-      <div>
-        <small>DP</small><br>৳120
-      </div>
-      <div>
-        <small>PV</small><br>40
-      </div>
-    </div>
-
-    <a href="https://wa.me/8801615766602" class="order-btn">অর্ডার করুন</a>
-  </div>
+<div class="admin">
+<h3>Admin Panel</h3>
+<input type="text" id="name" placeholder="পণ্যের নাম">
+<input type="text" id="image" placeholder="ইমেজ লিংক">
+<input type="number" id="mrp" placeholder="MRP">
+<input type="number" id="dp" placeholder="DP">
+<input type="number" id="pv" placeholder="PV">
+<select id="category">
+<option>Medicine</option>
+<option>Hair Care</option>
+</select>
+<button onclick="addProduct()">পণ্য যোগ করুন</button>
 </div>
 
 <div class="why">
-  <h
+<h2>কেন আমরাই সেরা?</h2>
+<ul>
+<li>✔ ১০০% প্রাকৃতিক উপাদান</li>
+<li>✔ দ্রুত কার্যকারিতা</li>
+<li>✔ বিশ্বস্ত ব্র্যান্ড</li>
+<li>✔ সারা দেশে ডেলিভারি</li>
+</ul>
+</div>
+
+<script>
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+function displayProducts(list){
+let container = document.getElementById("products");
+container.innerHTML="";
+list.forEach((p,index)=>{
+container.innerHTML+=`
+<div class="product">
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<div class="price">
+<div>MRP ৳${p.mrp}</div>
+<div>DP ৳${p.dp}</div>
+<div>PV ${p.pv}</div>
+</div>
+<div class="order-buttons">
+<a class="whatsapp" href="https://wa.me/8801724176191">WhatsApp অর্ডার</a>
+<a class="messenger" href="https://m.me/">Messenger</a>
+<a class="call" href="tel:01615766602">কল করুন</a>
+</div>
+</div>`;
+});
+}
+
+function addProduct(){
+let p={
+name:document.getElementById("name").value,
+image:document.getElementById("image").value,
+mrp:document.getElementById("mrp").value,
+dp:document.getElementById("dp").value,
+pv:document.getElementById("pv").value,
+category:document.getElementById("category").value
+};
+products.push(p);
+localStorage.setItem("products",JSON.stringify(products));
+displayProducts(products);
+}
+
+function filterCategory(cat){
+if(cat==="all"){displayProducts(products);}
+else{
+displayProducts(products.filter(p=>p.category===cat));
+}
+}
+
+function searchProduct(){
+let val=document.getElementById("search").value.toLowerCase();
+displayProducts(products.filter(p=>p.name.toLowerCase().includes(val)));
+}
+
+displayProducts(products);
+</script>
+
+</body>
+</html>
