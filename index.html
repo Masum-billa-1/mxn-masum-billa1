@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MXN Herbal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family: 'Hind Siliguri', sans-serif;
+  background:#f2f4f3;
+}
+
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  background:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.logo{
+  background:#1e8e3e;
+  color:white;
+  padding:12px 20px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:20px;
+}
+.cart{
+  font-size:24px;
+}
+
+/* Banner */
+.banner{
+  margin:20px;
+  padding:40px 25px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#1e8e3e,#34c759);
+  color:white;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+.banner h1{
+  margin:0;
+  font-size:26px;
+}
+.banner p{
+  opacity:0.9;
+  margin-top:10px;
+}
+
+/* Section */
+.section{
+  padding:20px;
+}
+.section h2{
+  font-size:22px;
+  margin-bottom:5px;
+}
+.section p{
+  color:#555;
+}
+
+/* Categories */
+.categories{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+.categories button{
+  padding:10px 18px;
+  border:none;
+  border-radius:25px;
+  background:#e5e5e5;
+  font-weight:600;
+}
+.categories .active{
+  background:#1e8e3e;
+  color:white;
+}
+
+/* Product Card */
+.products{
+  padding:20px;
+}
+.card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+.card img{
+  width:100%;
+}
+.card-content{
+  padding:20px;
+}
+.card-content h3{
+  margin:0;
+}
+.price{
+  margin-top:10px;
+  font-weight:700;
+  color:#1e8e3e;
+  font-size:18px;
+}
+.buy{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:15px;
+  background:#1e8e3e;
+  color:white;
+  font-weight:600;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">MXN</div>
+  <div class="cart">🛒</div>
+</div>
+
+<div class="banner">
+  <h1>প্রকৃতির ছোঁয়ায় সুস্থ থাকুন প্রতিদিন</h1>
+  <p>বিশ্বস্ত হারবাল পণ্য এখন আপনার হাতের নাগালে</p>
+</div>
+
+<div class="section">
+  <h2>আমাদের ভেষজ পণ্যসমূহ</h2>
+  <p>আধুনিক প্রযুক্তিতে ভেষজ চিকিৎসা ও সুস্থ জীবন</p>
+
+  <div class="categories">
+    <button class="active">সকল পণ্য</button>
+    <button>Medicine</button>
+    <button>Hair Care</button>
+  </div>
+</div>
+
+<div class="products">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2">
+    <div class="card-content">
+      <h3>মডার্ন নিম সোপ</h3>
+      <div class="price">৳120</div>
+      <button class="buy">অর্ডার করুন</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
