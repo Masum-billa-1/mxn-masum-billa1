@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MXN Modern Herbal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0fff4;
+      text-align: center;
+    }
+
+    header {
+      background: green;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 300px;
+    }
+
+    .product h2 {
+      color: green;
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    button {
+      background: green;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #e0ffe0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MXN Modern Herbal</h1>
+  <p>প্রাকৃতিক যত্ন, সুস্থ জীবনের জন্য 🌿</p>
+</header>
+
+<div class="container">
+
+  <div class="product">
+    <h2>Herbal Hair Oil</h2>
+    <p>চুল পড়া কমায় ও নতুন চুল গজাতে সাহায্য করে</p>
+    <div class="price">650৳</div>
+    <button onclick="order('Herbal Hair Oil - 650৳')">Order Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Herbal Face Cream</h2>
+    <p>ত্বক উজ্জ্বল ও মসৃণ রাখতে সহায়তা করে</p>
+    <div class="price">550৳</div>
+    <button onclick="order('Herbal Face Cream - 550৳')">Order Now</button>
+  </div>
+
+</div>
+
+<footer>
+  📞 Call: 01615766602 <br>
+  📦 Cash On Delivery Available
+</footer>
+
+<script>
+function order(product){
+  window.location.href="https://wa.me/8801615766602?text=I want to order: " + product;
+}
+</script>
+
+</body>
+</html>
