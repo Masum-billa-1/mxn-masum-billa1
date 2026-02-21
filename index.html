@@ -1,169 +1,71 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MXN Modern Herbal Food Ltd</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-body{margin:0;font-family:'Noto Sans Bengali',sans-serif;background:#f2f5f4;}
-header{
-display:flex;justify-content:space-between;align-items:center;
-padding:15px;background:linear-gradient(135deg,#1f8a4d,#0f5c30);
-color:white;
-}
-.logo{font-weight:700;font-size:20px;}
-.cart{font-size:22px;cursor:pointer;}
-.search-box{padding:15px;text-align:center;}
-.search-box input{
-width:90%;padding:10px;border-radius:20px;border:1px solid #ccc;
-}
-.hero{
-margin:15px;border-radius:20px;color:white;
-padding:40px 20px;text-align:center;
-background:linear-gradient(135deg,#1f8a4d,#34a853);
-}
-.section{padding:15px;}
-.category button{
-padding:8px 15px;margin:5px;border:none;border-radius:20px;
-background:#ddd;cursor:pointer;
-}
-.category button.active{background:#1f8a4d;color:white;}
-.product{
-background:white;padding:15px;margin-top:15px;
-border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-.product img{width:100%;border-radius:15px;}
-.price{display:flex;justify-content:space-between;margin-top:10px;}
-.order-buttons a{
-display:block;margin-top:8px;padding:10px;text-align:center;
-color:white;text-decoration:none;border-radius:10px;
-}
-.whatsapp{background:#25D366;}
-.messenger{background:#0084FF;}
-.call{background:#ff6f00;}
-.admin{
-background:white;padding:15px;margin:20px;
-border-radius:20px;
-}
-.admin input, .admin select{
-width:100%;padding:8px;margin-top:8px;
-}
-.admin button{
-margin-top:10px;padding:10px;background:#1f8a4d;
-color:white;border:none;border-radius:10px;
-}
-.why{
-background:linear-gradient(135deg,#1f8a4d,#0f5c30);
-color:white;padding:30px;margin:20px;border-radius:30px;
-}
-@media(min-width:768px){
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-}
-</style>
+  <title>MXN Modern Herbal Food Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {font-family: Arial; margin:0; background:#f4f4f4;}
+    header {background:green; color:white; padding:15px; text-align:center;}
+    .container {padding:15px;}
+    .product {background:white; padding:10px; margin:10px 0; border-radius:8px;}
+    button {background:green; color:white; padding:8px 12px; border:none; border-radius:5px;}
+    input {padding:5px; margin:5px 0;}
+  </style>
 </head>
 <body>
 
 <header>
-<div class="logo">MXN</div>
-<div class="cart">🛒</div>
+  <h2>MXN Modern Herbal Food Ltd</h2>
 </header>
 
-<div class="search-box">
-<input type="text" id="search" placeholder="পণ্য সার্চ করুন..." onkeyup="searchProduct()">
-</div>
+<div class="container">
 
-<div class="hero">
-<h2>প্রাকৃতিক সুস্থতা সবার জন্য</h2>
-<p>আধুনিক প্রযুক্তিতে ভেষজ চিকিৎসা</p>
-</div>
+<h3>Add Product</h3>
+<input type="text" id="name" placeholder="Product Name"><br>
+<input type="number" id="price" placeholder="Price"><br>
+<button onclick="addProduct()">Add Product</button>
 
-<div class="section">
-<div class="category">
-<button onclick="filterCategory('all')" class="active">সকল পণ্য</button>
-<button onclick="filterCategory('Medicine')">Medicine</button>
-<button onclick="filterCategory('Hair Care')">Hair Care</button>
-</div>
+<h3>Products</h3>
+<div id="productList"></div>
 
-<div id="products" class="product-grid"></div>
-</div>
-
-<div class="admin">
-<h3>Admin Panel</h3>
-<input type="text" id="name" placeholder="পণ্যের নাম">
-<input type="text" id="image" placeholder="ইমেজ লিংক">
-<input type="number" id="mrp" placeholder="MRP">
-<input type="number" id="dp" placeholder="DP">
-<input type="number" id="pv" placeholder="PV">
-<select id="category">
-<option>Medicine</option>
-<option>Hair Care</option>
-</select>
-<button onclick="addProduct()">পণ্য যোগ করুন</button>
-</div>
-
-<div class="why">
-<h2>কেন আমরাই সেরা?</h2>
-<ul>
-<li>✔ ১০০% প্রাকৃতিক উপাদান</li>
-<li>✔ দ্রুত কার্যকারিতা</li>
-<li>✔ বিশ্বস্ত ব্র্যান্ড</li>
-<li>✔ সারা দেশে ডেলিভারি</li>
-</ul>
 </div>
 
 <script>
-let products = JSON.parse(localStorage.getItem("products")) || [];
-
-function displayProducts(list){
-let container = document.getElementById("products");
-container.innerHTML="";
-list.forEach((p,index)=>{
-container.innerHTML+=`
-<div class="product">
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<div class="price">
-<div>MRP ৳${p.mrp}</div>
-<div>DP ৳${p.dp}</div>
-<div>PV ${p.pv}</div>
-</div>
-<div class="order-buttons">
-<a class="whatsapp" href="https://wa.me/8801724176191">WhatsApp অর্ডার</a>
-<a class="messenger" href="https://m.me/">Messenger</a>
-<a class="call" href="tel:01615766602">কল করুন</a>
-</div>
-</div>`;
-});
-}
+let products = [];
 
 function addProduct(){
-let p={
-name:document.getElementById("name").value,
-image:document.getElementById("image").value,
-mrp:document.getElementById("mrp").value,
-dp:document.getElementById("dp").value,
-pv:document.getElementById("pv").value,
-category:document.getElementById("category").value
-};
-products.push(p);
-localStorage.setItem("products",JSON.stringify(products));
-displayProducts(products);
+  let name = document.getElementById("name").value;
+  let price = document.getElementById("price").value;
+  
+  if(name=="" || price==""){
+    alert("Please fill all fields");
+    return;
+  }
+
+  products.push({name, price});
+  displayProducts();
 }
 
-function filterCategory(cat){
-if(cat==="all"){displayProducts(products);}
-else{
-displayProducts(products.filter(p=>p.category===cat));
-}
+function displayProducts(){
+  let list = document.getElementById("productList");
+  list.innerHTML = "";
+
+  products.forEach((p, index)=>{
+    list.innerHTML += `
+      <div class="product">
+        <h4>${p.name}</h4>
+        <p>৳ ${p.price}</p>
+        <button onclick="orderNow('${p.name}', '${p.price}')">Order via WhatsApp</button>
+      </div>
+    `;
+  });
 }
 
-function searchProduct(){
-let val=document.getElementById("search").value.toLowerCase();
-displayProducts(products.filter(p=>p.name.toLowerCase().includes(val)));
+function orderNow(name, price){
+  let phone = "8801615766602";
+  let message = `I want to order ${name} - Price: ${price}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`);
 }
-
-displayProducts(products);
 </script>
 
 </body>
